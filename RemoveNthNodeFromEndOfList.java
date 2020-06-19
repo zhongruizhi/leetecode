@@ -1,21 +1,21 @@
 class RemoveNthNodeFromEndOfList {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        int length = 0;
-        ListNode cur = head;
-        List<ListNode> pointers = new ArrayList<>();
-        while (cur != null) {
-            length++;
-            pointers.add(cur);
-            cur = cur.next;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode first = dummy;
+        ListNode second = dummy;
+        // Advances first pointer so that the gap between first and second is n nodes apart
+        for (int i = 1; i <= n + 1; i++) {
+            first = first.next;
         }
-        int index = length - n;
-        if (index > 0) {
-            pointers.get(index - 1).next = pointers.get(index).next;
-        } else {
-            head = head.next;
+        // Move first to the end, maintaining the gap
+        while (first != null) {
+            first = first.next;
+            second = second.next;
         }
-        return head;
+        second.next = second.next.next;
+        return dummy.next;
     }
 
     public static void main(String[] args) {
