@@ -31,10 +31,29 @@ public class BestTimeToBuyAndSellStock {
         return ans;
     }
 
+    /**
+     * my own solution
+     * 
+     * @param prices
+     * @return
+     */
+    public int maxProfit2(int[] prices) {
+        //max sub-array
+        int globalMax = Integer.MIN_VALUE;
+        int localMax = 0;
+        for (int i = 1; i < prices.length; i++) {
+            localMax = Math.max(localMax + (prices[i] - prices[i - 1]), prices[i] - prices[i - 1]);
+            if (localMax > globalMax)
+                globalMax = localMax;
+        }
+        return globalMax > 0 ? globalMax : 0;
+    }
+
 
     public static void main(String[] args) {
         BestTimeToBuyAndSellStock solution = new BestTimeToBuyAndSellStock();
         int[] prices = {7, 1, 5, 3, 6, 4};
         System.out.println(solution.maxProfit(prices));
+        System.out.println(solution.maxProfit2(prices));
     }
 }
