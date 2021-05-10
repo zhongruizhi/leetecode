@@ -32,7 +32,7 @@ public class BestTimeToBuyAndSellStock {
     }
 
     /**
-     * my own solution
+     * my own solution 2
      * 
      * @param prices
      * @return
@@ -49,11 +49,30 @@ public class BestTimeToBuyAndSellStock {
         return globalMax > 0 ? globalMax : 0;
     }
 
+    /**
+     * 
+     * 
+     * @param prices
+     * @return
+     */
+    public int maxProfit3(int prices[]) {
+        int minprice = Integer.MAX_VALUE;
+        int maxprofit = 0;
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < minprice)
+                minprice = prices[i];
+            else if (prices[i] - minprice > maxprofit)
+                maxprofit = prices[i] - minprice;
+        }
+        return maxprofit;
+    }
+
 
     public static void main(String[] args) {
         BestTimeToBuyAndSellStock solution = new BestTimeToBuyAndSellStock();
         int[] prices = {7, 1, 5, 3, 6, 4};
         System.out.println(solution.maxProfit(prices));
         System.out.println(solution.maxProfit2(prices));
+        System.out.println(solution.maxProfit3(prices));
     }
 }
