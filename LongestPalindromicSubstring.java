@@ -11,7 +11,7 @@ public class LongestPalindromicSubstring {
             int len1 = expandAroundCenter(s, i, i);
             int len2 = expandAroundCenter(s, i, i + 1);
             int len = Math.max(len1, len2);
-            if (len > end - start) {
+            if (len > end - start + 1) {
                 start = i - (len - 1) / 2;
                 end = i + len / 2;
             }
@@ -30,6 +30,6 @@ public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
         LongestPalindromicSubstring solution = new LongestPalindromicSubstring();
-        System.out.println(solution.longestPalindrome("babbad"));
+        System.out.println(solution.longestPalindrome("babbadacd"));
     }
 }
