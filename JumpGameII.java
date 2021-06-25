@@ -2,7 +2,7 @@
  * 45. Jump Game II
  * https://leetcode.com/problems/jump-game-ii/
  */
-public class JumpGameII{
+public class JumpGameII {
 
     /**
      * https://towardsdatascience.com/tackling-jump-game-problems-leetcode-e0a718e7dfba
