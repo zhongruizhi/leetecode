@@ -32,6 +32,7 @@ public class JumpGame {
         }
         return lastreach == 0 ? true : false;
     }
+    
     public static void main(String[] args) {
         JumpGame solution = new JumpGame();
         int[] numsTrue = {2, 3, 1, 1, 4};
